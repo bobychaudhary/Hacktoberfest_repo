@@ -1,74 +1,28 @@
-package LinkedList.SinglyLinkedList;
-public class Delete extends SinglyLinkedlist {
+/*
+ * @Jai_Bajrang_Bali
+ * @Har_Har_Mahadev
+ */
+/*   Author: Sanat Kumar Dubey (sanat04)
+ *   File: G.java
+ */
 
-    // delete first element
-    public ListNode deleteFirst(){
-        if(head==null){
-            return null;
-        }
-        ListNode current=head;
-        head=head.next;
-        current.next=null;
-        return current;
+import java.util.Scanner;
+
+public class G {
+    public static int help(int n) {
+        String str = String.valueOf(n);
+        return str.length();
     }
-
-    //delete last element
-    public ListNode deleteLast(){
-        if(head==null) return null;
-        ListNode second_last=head;
-        while(second_last.next.next!=null){
-            second_last=second_last.next;
-            second_last.next=null;
-        }
-        return head;
-    }
-
-    //take value from user and add the element at the given position
-    public void insert(int position, int value){
-        ListNode newNode=new ListNode(value);
-        if(position==1){
-            newNode.next=head;
-            head=newNode;
-        }
-        else{
-            ListNode previous=head;
-            int count=1;
-            while(count<position-1){
-                previous=previous.next;
-                count++;
-            }
-            ListNode current=previous.next;
-            newNode.next=current;
-            previous.next=newNode;
-        }
-    }
-    
-
-    //to delete a node form given position
-
-    public void delete(int position){
-        if(position==1){
-            head=head.next;
-        }
-        else{
-            ListNode previous=head;
-            int count=1;
-            while(count<position-1){
-                previous=previous.next;
-
-                count++;
-            }
-            ListNode current=previous.next;
-            previous.next=current.next;
-
-        }
-
-    }
-    
 
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+        for (int i = 1; i <= n; i++) {
+            int res = help(i);
+            if (res % 2 != 0) count++;
+        }
+        System.out.println(count);
     }
-    
 }
 
